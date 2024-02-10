@@ -1,12 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useContext } from 'react';
+import { useState } from 'react';
 const Login = () => {
+    const {logInUser} = useContext(AuthContext);
+    const notify = (message) => toast(message);
     const handleLogin = e =>{
         e.preventDefault();
+        // e.stopPropagation()
+        
         const form = new FormData(e.currentTarget);
         const password = form.get("password");
         const email = form.get("email");
+        // let loggedIn = false; 
+        logInUser(email, password)
+        .then(result => {
+            console.log(result.user);
+            notify("Logged in Successfully");
+            // setMessage("Logged In Successfully!")
+            
+        })
+        .catch(error => {
+            console.log(error.message);
+            // notify(`Login Failed: ${error.message}`);
+        });
+        
     }
     return (
         <div>
@@ -36,6 +57,7 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
+                {/* <ToastContainer autoClose={1000}></ToastContainer> */}
             </div>
     );
 };
