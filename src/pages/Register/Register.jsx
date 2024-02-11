@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 const Register = () => {
+    const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const uppercaseRegex = /[A-Z]/;
@@ -37,8 +38,9 @@ const Register = () => {
             createUser(email, password)
                 .then(result => {
                     console.log(result.user);
-                    // toast("Registration Completed");
                     notify();
+                    e.target.reset();
+                    navigate("/");
                 })
                 .catch(error => {
                     console.log(error.message);

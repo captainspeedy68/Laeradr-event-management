@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -8,6 +8,20 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const offset = window.pageYOffset; // Calculate scroll position
+        setIsSticky(offset > 0); // Set sticky based on scroll position
+      };
+  
+      window.addEventListener('scroll', handleScroll); // Add scroll event listener
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll); // Remove listener on unmount
+      };
+    }, []);
     // console.log("from navbar", user)
     const location = useLocation();
     const [isBannerVisible, setIsBannerVisible] = useState(false);
@@ -33,16 +47,16 @@ const Navbar = () => {
     }
 
     const links = <>
-        <li onClick={() => setIsBannerVisible(true)}><NavLink className={`bg-white active-link btn min-h-4 h-8 mx-1 border-none shadow-none hover:bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% hover:text-white ${location.pathname === "/" ? "bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white " : ""}`} to={"/"} >
+        <li onClick={() => setIsBannerVisible(true)}><NavLink className={` nav-btn ${location.pathname === "/" ? "active " : ""}`} to={"/"} >
             Home
         </NavLink>
         </li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`bg-white active-link btn min-h-4 h-8 mx-1 border-none shadow-none hover:bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% hover:text-white ${location.pathname === "/events" ? "bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white " : ""}`} to={"/events"}>Events</NavLink></li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`bg-white active-link btn min-h-4 h-8 mx-1 border-none shadow-none hover:bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% hover:text-white ${location.pathname === "/about" ? "bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white " : ""}`} to={"/about"}>About</NavLink></li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`bg-white active-link btn min-h-4 h-8 mx-1 border-none shadow-none hover:bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% hover:text-white ${location.pathname === "/blog" ? "bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white " : ""}`} to={"/blog"}>Blog</NavLink></li>
+        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/events" ? "active" : ""}`} to={"/events"}>Events</NavLink></li>
+        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/about" ? "active" : ""}`} to={"/about"}>About</NavLink></li>
+        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/blog" ? "active" : ""}`} to={"/blog"}>Blog</NavLink></li>
     </>
     return (
-        <div className="navbar my-3">
+        <div className={`navbar my-3 z-50 relative  ${isSticky ? 'sticky top-0 bg-white' : ''}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +68,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="rounded-md px-4 py-2 font-bold border-none text-xl gradient-text">Event Mangement</a>
+                <a className="rounded-md px-4 py-2 font-bold border-none text-xl gradient-text flex justify-around"><img className='h-7 mr-2' src='/favicon.png'></img>Event Mangement</a>
             </div>
             <div className="navbar-center hidden lg:flex align-middle items-center">
                 <ul className="menu-horizontal px-10 flex justify-between ">
@@ -65,19 +79,22 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {/* add this in the css ${clicked ? 'scale-105' : ''} */}
-                <section className={`relative hover:cursor-pointer ${clicked ? 'scale-105' : ''} transition-transform duration-75 overflow-hidden bg-gradient-to-r from-[#ff530a] via-[#FF7418] to-[#FFA328] border-2 border-transparent rounded-md px-4 py-2 text-white font-semibold shadow-md`} onClick={handleClick}><Link to={"/register"}>
-                    Register
-                    <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
-                </Link>
-                </section>
+
                 {
-                    user ? 
-                    <section className={`relative hover:cursor-pointer  ${clicked ? 'scale-105' : ''} transition-transform duration-75 overflow-hidden bg-gradient-to-r from-[#ff530a] via-[#FF7418] to-[#FFA328] border-2 border-transparent rounded-md px-4 py-2 text-white font-semibold shadow-md`} onClick={handleLogout}>Logout</section> : 
-                    <section className={`relative hover:cursor-pointer ${clicked ? 'scale-105' : ''} transition-transform duration-75 overflow-hidden bg-gradient-to-r from-[#ff530a] via-[#FF7418] to-[#FFA328] border-2 border-transparent rounded-md px-4 py-2 text-white font-semibold shadow-md`} onClick={handleClick} ><Link to={"/login"}>
-                        Login
-                        <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
-                    </Link>
-                    </section>
+                    user ?
+                        <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>Logout</section> :
+                        <>
+                            <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick} ><Link to={"/login"}>
+                                Login
+                                <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
+                            </Link>
+                            </section>
+                            <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
+                                Register
+                                <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
+                            </Link>
+                            </section>
+                        </>
                 }
 
             </div>
