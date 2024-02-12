@@ -10,7 +10,7 @@
         "price": 150,
         "capacity": 500,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/conference_image.jpg"
+        "image": "https://i.ibb.co/2d4DYcw/man-speaking-before-crowd.jpg"
     },
     {
         "id": 2,
@@ -23,7 +23,7 @@
         "price": 50,
         "capacity": 1000,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/tech_expo_image.jpg"
+        "image": "https://i.ibb.co/c8BFBtD/tech.jpg"
     },
     {
         "id": 3,
@@ -36,7 +36,7 @@
         "price": 300,
         "capacity": 50,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/corporate_retreat_image.jpg"
+        "image": "https://i.ibb.co/drBjq3T/meeting.jpg"
     },
     {
         "id": 4,
@@ -49,7 +49,7 @@
         "price": 0,
         "capacity": 200,
         "registration_link": null,
-        "image": "https://example.com/images/product_launch_image.jpg"
+        "image": "https://i.ibb.co/JnH2D4M/product.jpg"
     },
     {
         "id": 5,
@@ -62,7 +62,7 @@
         "price": 0,
         "capacity": 300,
         "registration_link": null,
-        "image": "https://example.com/images/corporate_meeting_image.jpg"
+        "image": "https://i.ibb.co/RTPq0S2/men-talking.jpg"
     },
     {
         "id": 6,
@@ -75,7 +75,7 @@
         "price": 100,
         "capacity": 200,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/employee_recognition_image.jpg"
+        "image": "https://i.ibb.co/HrTwTqR/open-gathering.jpg"
     },
     {
         "id": 7,
@@ -88,7 +88,7 @@
         "price": 200,
         "capacity": 300,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/leadership_summit_image.jpg"
+        "image": "https://i.ibb.co/jy30nM0/people-talking.jpg"
     },
     {
         "id": 8,
@@ -101,6 +101,6 @@
         "price": 75,
         "capacity": 500,
         "registration_link": "https://example.com/register",
-        "image": "https://example.com/images/fashion_industry_image.jpg"
+        "image": "https://i.ibb.co/bP6Z6Q5/fashion.jpg"
     }
 ]
