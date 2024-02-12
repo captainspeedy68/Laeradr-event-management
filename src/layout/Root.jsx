@@ -7,7 +7,7 @@ import BackgroundImage from './BackgroundImage';
 
 const Root = () => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='md:max-w-7xl md:mx-auto'>
             {/* <BackgroundImage></BackgroundImage> */}
             <Navbar></Navbar>
             <Outlet></Outlet>
