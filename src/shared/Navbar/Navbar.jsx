@@ -5,22 +5,22 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../providers/AuthProvider';
-
+import { FaUserLarge } from "react-icons/fa6";
 const Navbar = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout, googleSignIn } = useContext(AuthContext);
     const [isSticky, setIsSticky] = useState(false);
-
+    const [userWithGoogle, setUserWithGoogle] = useState(null);
     useEffect(() => {
-      const handleScroll = () => {
-        const offset = window.pageYOffset; // Calculate scroll position
-        setIsSticky(offset > 0); // Set sticky based on scroll position
-      };
-  
-      window.addEventListener('scroll', handleScroll); // Add scroll event listener
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll); // Remove listener on unmount
-      };
+        const handleScroll = () => {
+            const offset = window.pageYOffset; // Calculate scroll position
+            setIsSticky(offset > 0); // Set sticky based on scroll position
+        };
+
+        window.addEventListener('scroll', handleScroll); // Add scroll event listener
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // Remove listener on unmount
+        };
     }, []);
     // console.log("from navbar", user)
     const location = useLocation();
@@ -45,6 +45,20 @@ const Navbar = () => {
         // notify();
         // 
     }
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                const logged = result.user;
+                // console.log(result.user);
+                // setUserWithGoogle(logged);
+                console.log(logged);
+                // setUserWithGoogle(logged);
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+    if (user && user.photoURL) console.log("from navbar", user.photoURL);
 
     const links = <>
         <li onClick={() => setIsBannerVisible(true)}><NavLink className={` nav-btn ${location.pathname === "/" ? "active " : ""}`} to={"/"} >
@@ -68,7 +82,9 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="rounded-md px-4 py-2 font-bold border-none text-xl gradient-text flex justify-around"><img className='h-7 mr-2' src='/favicon.png'></img>Event Mangement</a>
+                <a className="rounded-md px-4 py-2 font-bold border-none text-xl gradient-text flex justify-around">
+                    <img className='h-10 w-10 mr-2' src='/favicon.png'></img>
+                    Event Mangement</a>
             </div>
             <div className="navbar-center hidden lg:flex align-middle items-center">
                 <ul className="menu-horizontal px-10 flex justify-between ">
@@ -77,27 +93,56 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
+            
             <div className="navbar-end">
                 {/* add this in the css ${clicked ? 'scale-105' : ''} */}
 
                 {
                     user ?
-                        <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>Logout</section> :
                         <>
-                            <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick} ><Link to={"/login"}>
-                                Login
-                                <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
-                            </Link>
-                            </section>
+                            {
+                                user && user.displayName && <p>{user.displayName}</p>
+                                
+                            }
+                            <details className='flex justify-center items-center mx-3 relative'>
+                                <summary className='flex'>
+                                    {user && user.photoURL && <img className=' icon h-14 w-14 mr-2 rounded-full' src={user.photoURL} alt="" />}
+                                        
+
+                                </summary>
+                                <div>
+                                    <ul className={` absolute right-0 top-full transform translate-y-4  ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>Logout</ul>
+                                </div>
+
+                            </details>
+                        </>
+                        :
+                        <>
+                            <details className='flex justify-center items-center mx-3 relative'>
+                                <summary className='icon'><FaUserLarge className='h-7 w-7' /></summary>
+                                <div className='absolute right-0 top-full transform translate-y-4 '>
+                                    <ul className={`absolute right-0 top-full transform translate-y-0 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick} ><Link className='block' to={"/login"}>
+                                        Login
+                                        <span className="btn-span"></span>
+                                    </Link>
+                                    </ul>
+                                    <ul className={` absolute right-0 top-full transform translate-y-12 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleGoogle}>
+                                        Google
+                                    </ul>
+                                </div>
+
+                            </details>
+
                             <section className={`relative ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
                                 Register
-                                <span className="absolute inset-0 border-2 border-solid border-white rounded-md"></span>
+                                <span className="btn-span"></span>
                             </Link>
                             </section>
                         </>
                 }
-
+                
             </div>
+            {/* <img src={user.photoURL} alt="" /> */}
             {/* <ToastContainer></ToastContainer> */}
         </div>
     );
