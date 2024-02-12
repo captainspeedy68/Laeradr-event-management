@@ -6,7 +6,7 @@
   color: transparent;
 }
 .nav-btn{
-  @apply bg-white btn min-h-4 h-8 mx-1 border-none shadow-none;
+  @apply bg-white btn min-h-4 h-8 mx-1 border-none shadow-none rounded-md;
   @apply hover:bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% hover:text-white
 }
 .active{
@@ -17,4 +17,17 @@
 }
 .event-btn{
   @apply hover:bg-gradient-to-r from-[#FFA328]  from-20% via-[#FF7418] via-50%  to-[#ff530a] to-95% hover:text-white;
+}
+.icon-click{
+  @apply dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 menu menu-sm;
+}
+.btn-span{
+  @apply absolute inset-0 border-2 border-solid border-white rounded-md;
+}
+.icon{
+  @apply rounded-full mx-1 border-[#FFBE31] border-2 h-14 w-14 flex justify-center items-center text-orange-400;
+  @apply hover:bg-[#FFBE31] hover:text-white hover:cursor-pointer;
+}
+.services{
+  @apply bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white;
 }
