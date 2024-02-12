@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Event Planning and Coordination",
+        "description": "Comprehensive planning and coordination services tailored to meet the unique needs of your corporate event.",
+        "price": "$2000 - $5000",
+        "image_url": "https://example.com/event_planning.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Venue Selection and Booking",
+        "description": "Assistance with selecting the perfect venue for your corporate event, including negotiating contracts and securing bookings.",
+        "price": "Depends on Venue",
+        "image_url": "https://example.com/venue_selection.jpg"
+    },
+    {
+        "id": 3,
+        "name": "On-Site Event Management",
+        "description": "Professional on-site management and supervision to oversee all aspects of your corporate event and handle any issues that may arise.",
+        "price": "$1500 - $3000",
+        "image_url": "https://example.com/on_site_management.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Vendor Management",
+        "description": "Coordinating with various vendors such as caterers, decorators, audio-visual equipment providers, etc., to ensure seamless execution of your event.",
+        "price": "Varies based on services",
+        "image_url": "https://example.com/vendor_management.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Event Marketing and Promotion",
+        "description": "Developing marketing strategies and promotional campaigns to maximize attendance and visibility for your corporate event.",
+        "price": "$1000 - $3000",
+        "image_url": "https://example.com/event_marketing.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Catering Services",
+        "description": "Offering a wide range of catering options to suit your event's theme and dietary preferences, including buffet-style, plated meals, and cocktail receptions.",
+        "price": "$20 - $50 per person",
+        "image_url": "https://example.com/catering_services.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Audio-Visual Equipment Rental",
+        "description": "Providing state-of-the-art audio-visual equipment rental services to enhance the production value of your corporate event.",
+        "price": "$500 - $2000",
+        "image_url": "https://example.com/audio_visual_rental.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Event Staffing",
+        "description": "Providing professional event staff such as hosts, hostesses, ushers, and technical crew to ensure smooth operations and guest satisfaction.",
+        "price": "$25 - $50 per hour per staff",
+        "image_url": "https://example.com/event_staffing.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Custom Branding and Signage",
+        "description": "Creating custom branding materials and signage to reinforce your corporate identity and messaging throughout the event venue.",
+        "price": "$500 - $2000",
+        "image_url": "https://example.com/custom_branding.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Post-Event Evaluation and Feedback",
+        "description": "Conducting post-event evaluations and collecting feedback to assess the success of your corporate event and identify areas for improvement.",
+        "price": "Included in package",
+        "image_url": "https://example.com/post_event_evaluation.jpg"
+    }
+]
