@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
 import { useState } from 'react';
 const Login = () => {
     const { logInUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [userInfo, setUserInfo] = useState([])
     const notify = (message) => toast(message);
     const [errorMessage, setErrorMessage] = useState(null);
     const handleLogin = e => {
@@ -20,7 +21,9 @@ const Login = () => {
         // let loggedIn = false; 
         logInUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user.email);
+                setUserInfo(result.user);
+                console.log(user.displayName);
                 notify("Logged in Successfully");
                 e.target.reset();//to reset the the login form after login is successful
                 navigate("/");//using useNavigate hook to navigate to the homepage after navigation
