@@ -9,6 +9,8 @@ import Events from '../pages/Events/Events';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
+import 'react-toastify/dist/ReactToastify.css';
+import Details from '../shared/Details';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -29,7 +31,17 @@ import Register from '../pages/Register/Register';
         {
           path: "/register",
           element: <Register></Register>
-        }
+        },
+        {
+          path: '/event/:id',
+          element: <Details />,
+          loader: () => fetch('/events.json')
+        },
+        {
+          path: '/service/:id',
+          element: <Details />,
+          loader: () => fetch('/services.json')
+        },
       ]
     },
   ]);

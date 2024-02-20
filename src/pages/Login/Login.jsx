@@ -5,8 +5,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
 import { useState } from 'react';
+import { FaGoogle } from "react-icons/fa";
 const Login = () => {
-    const { logInUser } = useContext(AuthContext);
+    const { logInUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState([])
     const notify = (message) => toast(message);
@@ -37,9 +38,19 @@ const Login = () => {
             });
 
     }
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                const logged = result.user;
+                console.log(logged);
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className='my-4'>
+            <div className="hero my-10">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body">
                         <h3 className='text-center font-semibold'>Login!</h3>
@@ -71,6 +82,18 @@ const Login = () => {
                 </div>
             </div>
             {/* <ToastContainer autoClose={1000}></ToastContainer> */}
+            <div className='text-center'>
+                <div onClick={handleGoogle}
+                    className='inline-block px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-md hover:shadow-lg hover:cursor-pointer'
+                >
+                    <div className='flex justify-around items-center'>
+                        <FaGoogle />
+                        <span className='ml-3'>Login With Google</span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     );
 };
