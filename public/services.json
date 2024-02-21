@@ -4,62 +4,80 @@
         "name": "Event Planning and Coordination",
         "description": "Comprehensive planning and coordination services tailored to meet the unique needs of your corporate event.",
         "price": "$2000 - $5000",
-        "image_url": "https://i.ibb.co/rQ5WVjP/event-planning1.jpg"
+        "image_url": "https://i.ibb.co/rQ5WVjP/event-planning1.jpg",
+        "button_color": "#FF5733", 
+        "button_title": "Plan Your Event" 
     },
     {
         "id": 2,
         "name": "Venue Selection and Booking",
         "description": "Assistance with selecting the perfect venue for your corporate event, including negotiating contracts and securing bookings.",
         "price": "Depends on Venue",
-        "image_url": "https://i.ibb.co/PWzGjPF/venue.jpg"
+        "image_url": "https://i.ibb.co/PWzGjPF/venue.jpg",
+        "button_color": "#FFA07A", 
+        "button_title": "Find Venue" 
     },
     {
         "id": 3,
         "name": "On-Site Event Management",
         "description": "Professional on-site management and supervision to oversee all aspects of your corporate event and handle any issues that may arise.",
         "price": "$1500 - $3000",
-        "image_url": "https://i.ibb.co/dQFxTHV/on-site-management.jpg"
+        "image_url": "https://i.ibb.co/dQFxTHV/on-site-management.jpg",
+        "button_color": "#FF6347", 
+        "button_title": "Manage Event" 
     },
     {
         "id": 4,
         "name": "Vendor Management",
         "description": "Coordinating with various vendors such as caterers, decorators, audio-visual equipment providers, etc., to ensure seamless execution of your event.",
         "price": "Varies based on services",
-        "image_url": "https://i.ibb.co/WP0k2Nv/vendor.jpg"
+        "image_url": "https://i.ibb.co/WP0k2Nv/vendor.jpg",
+        "button_color": "#FF7F50", 
+        "button_title": "Manage Vendors" 
     },
     {
         "id": 5,
         "name": "Event Marketing and Promotion",
         "description": "Developing marketing strategies and promotional campaigns to maximize attendance and visibility for your corporate event.",
         "price": "$1000 - $3000",
-        "image_url": "https://i.ibb.co/b5QDtWH/marketting-promotion.jpg"
+        "image_url": "https://i.ibb.co/b5QDtWH/marketting-promotion.jpg",
+        "button_color": "#FDAC2E", 
+        "button_title": "Promote Event" 
     },
     {
         "id": 6,
         "name": "Catering Services",
         "description": "Offering a wide range of catering options to suit your event's theme and dietary preferences, including buffet-style, plated meals, and cocktail receptions.",
         "price": "$20 - $50 per person",
-        "image_url": "https://i.ibb.co/26GhGrG/water.jpg"
+        "image_url": "https://i.ibb.co/26GhGrG/water.jpg",
+        "button_color": "#FFA057", 
+        "button_title": "Cater Your Event" 
     },
     {
         "id": 7,
         "name": "Audio-Visual Equipment Rental",
         "description": "Providing state-of-the-art audio-visual equipment rental services to enhance the production value of your corporate event.",
         "price": "$500 - $2000",
-        "image_url": "https://i.ibb.co/p2hrCvM/audio.jpg"
+        "image_url": "https://i.ibb.co/p2hrCvM/audio.jpg",
+        "button_color": "#FF9F40", 
+        "button_title": "Rent Equipment"
     },
     {
         "id": 8,
         "name": "Event Staffing",
         "description": "Providing professional event staff such as hosts, hostesses, ushers, and technical crew to ensure smooth operations and guest satisfaction.",
         "price": "$25 - $50 per hour per staff",
-        "image_url": "https://i.ibb.co/SJhmW6N/staffing.jpg"
+        "image_url": "https://i.ibb.co/SJhmW6N/staffing.jpg",
+        "button_color": "#FF7256",
+        "button_title": "Hire Staff"
     },
     {
-        "id": 10,
+        "id": 9,
         "name": "Post-Event Evaluation and Feedback",
         "description": "Conducting post-event evaluations and collecting feedback to assess the success of your corporate event and identify areas for improvement.",
         "price": "Included in package",
-        "image_url": "https://i.ibb.co/dQFxTHV/on-site-management.jpg"
+        "image_url": "https://i.ibb.co/dQFxTHV/on-site-management.jpg",
+        "button_color": "#FF530A", 
+        "button_title": "Evaluate Event" 
     }
 ]
