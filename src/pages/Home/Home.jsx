@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Services from '../Services/Services';
 import Banner from './Banner';
+import Us from './Us';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -15,9 +16,12 @@ const Home = () => {
     const elementImage = services[2]?.image_url
     return (
         <div className='m-0 p-0'>
-            <Banner services = {services}></Banner>
-            <Services services={services}></Services>        
+            <Banner services={services}></Banner>
+            <div className='grid grid-cols-2 mx-auto'>
+                <Us></Us>
+                <Services services={services}></Services>
             </div>
+        </div>
     );
 };
 
