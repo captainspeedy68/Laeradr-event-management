@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,9 +8,10 @@ import { useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 const Login = () => {
     const { logInUser, googleSignIn } = useContext(AuthContext);
+    const location = useLocation();
     const navigate = useNavigate();
-    const [userInfo, setUserInfo] = useState([])
-    const notify = (message) => toast(message);
+    const [userInfo, setUserInfo] = useState(null)
+    const notify = () => toast("Logged In Successfully!");
     const [errorMessage, setErrorMessage] = useState(null);
     const handleLogin = e => {
         e.preventDefault();
@@ -24,11 +25,11 @@ const Login = () => {
             .then(result => {
                 // console.log(result.user.email);
                 setUserInfo(result.user);
-                console.log(user.displayName);
-                notify("Logged in Successfully");
+                setErrorMessage(null);
+                // console.log(user.displayName);
+                notify();
                 e.target.reset();//to reset the the login form after login is successful
-                navigate("/");//using useNavigate hook to navigate to the homepage after navigation
-                // setMessage("Logged In Successfully!")
+                navigate( location?.state ? location.state : "/");//using useNavigate hook to navigate to the homepage after navigation
 
             })
             .catch(error => {
