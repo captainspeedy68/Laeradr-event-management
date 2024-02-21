@@ -13,7 +13,7 @@ const IndividualService = ({ service }) => {
                     <div className="">
                         <h1 className="mb-2 font-bold text-white">{name}</h1>
                         {/* <p className="mb-5 text-white h-40">{description}</p> */}
-                        <button className="btn nav-clickable text-white">View Details</button>
+                        <button className="btn nav-clickable text-white">Service Details</button>
                     </div>
                 </Link>
 

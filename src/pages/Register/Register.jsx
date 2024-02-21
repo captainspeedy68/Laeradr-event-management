@@ -48,8 +48,8 @@ const Register = () => {
                 })
     }
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className='my-4 '>
+            <div className="hero">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <form onSubmit={handleregister} className="card-body">

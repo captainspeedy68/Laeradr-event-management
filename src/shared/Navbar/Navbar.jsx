@@ -10,6 +10,7 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const [isSticky, setIsSticky] = useState(false);
     const [userWithGoogle, setUserWithGoogle] = useState(null);
+    const location = useLocation();
     useEffect(() => {
         const handleScroll = () => {
             const offset = window.pageYOffset; // Calculate scroll position
@@ -23,7 +24,7 @@ const Navbar = () => {
         };
     }, []);
     // console.log("from navbar", user)
-    const location = useLocation();
+    
     const [isBannerVisible, setIsBannerVisible] = useState(false);
     const [clicked, setClicked] = useState(false);
     // const notify = toast("Logged Out!");
@@ -114,16 +115,20 @@ const Navbar = () => {
                         </>
                         :
                         <>
-                            <div className='flex justify-center items-center mx-3 relative'>
-                                <Link className='block' to={"/login"}>
-                                    <summary className='icon'><FaUserLarge className='h-7 w-7' /></summary></Link>
-                            </div>
+                                {
+                                    (!location.pathname.includes("/login")) &&                             <div alt = "login" className='flex justify-center items-center mx-3 relative'>
+                                    <Link className='block' to={"/login"}>
+                                        <summary className='icon'><FaUserLarge className='h-7 w-7' /></summary></Link>
+                                </div>
+                                }
 
-                            <section className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
-                                Register
-                                <span className="btn-span"></span>
-                            </Link>
-                            </section>
+                                {
+                                    (!location.pathname.includes("/register")) &&                             <section className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
+                                    Register
+                                    <span className="btn-span"></span>
+                                </Link>
+                                </section>
+                                }
                         </>
                 }
 

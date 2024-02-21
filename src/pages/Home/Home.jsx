@@ -17,7 +17,7 @@ const Home = () => {
     return (
         <div className='m-0 p-0'>
             <Banner services={services}></Banner>
-            <div className='grid grid-cols-2 mx-auto'>
+            <div className='md:grid grid-cols-2 mx-auto'>
                 <Us></Us>
                 <Services services={services}></Services>
             </div>

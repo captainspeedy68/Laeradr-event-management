@@ -14,8 +14,8 @@ const Details = () => {
     //     backgroundColor: text_button_bg
     // }
     return (
-        <div className='grid my-20 mx-auto grid-cols-4 min-h-80'>
-            <div className=''>
+        <div className='md:grid my-20 mx-auto grid-cols-4 min-h-80 max-md:text-center'>
+            <div className='item-center flex justify-center'>
                 <img src={image_url} className="w-11/12 h-11/12 " alt="" />
             </div>
             <div className='col-span-2'>
