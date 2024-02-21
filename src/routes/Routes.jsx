@@ -34,7 +34,7 @@ import Details from '../shared/Details';
         },
         {
           path: '/event/:id',
-          element: <Details />,
+          element: <Details/>,
           loader: () => fetch('/events.json')
         },
         {
