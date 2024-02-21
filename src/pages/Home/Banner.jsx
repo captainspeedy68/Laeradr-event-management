@@ -1,9 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 const Banner = ({ services }) => {
     const imageUrl = services[7]?.image_url;
-
+    const {googleSignIn, user} = useContext(AuthContext)
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                const logged = result.user;
+                console.log(logged);
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
         <div className='mx-auto my-10'>
             {imageUrl && (
@@ -15,11 +29,21 @@ const Banner = ({ services }) => {
                         {/* Overlay content goes here */}
                     </div>
 
-                    <div className="absolute flex justify-center items-center top-1/2 transform -translate-y-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden">
-                        <div className="flex flex-col space-y-4 text-center">
+                    <div className="absolute flex justify-center items-center top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden">
+                        <div className="flex flex-col justify-center items-center space-y-4 text-center">
                             <h1 className="text-5xl font-bold text-white">Manage Your Events!</h1>
-                            <button className="p-3 bg-[#ff530a] text-white font-bold h-full rounded-2xl shadow-lg hover:bg-[#FF7418]">Button 1</button>
-                            <button className="p-3 h-full bg-[#ff530a] text-white font-bold rounded-2xl shadow-lg hover:bg-[#FF7418]">Button 2</button>
+                            {
+                                !user && <div onClick={handleGoogle}
+                                className='inline-block justify-center px-6 w-64 py-3 text-lg font-semibold text-white bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-md hover:shadow-lg hover:cursor-pointer'
+                            >
+                                <div className='flex justify-around items-center'>
+                                    <FaGoogle />
+                                    <span className='ml-3'>Login With Google</span>
+                                </div>
+
+                            </div>
+                            }
+
                         </div>
                     </div>
                 </div>
