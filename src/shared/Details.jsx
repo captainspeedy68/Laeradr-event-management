@@ -8,8 +8,8 @@ const Details = () => {
     const { id } = useParams();
     const idInt = parseInt(id);
     const service = services.find(service => service.id === idInt)
-    const { image_url, description, price, name } = service;
-    // console.log(id)
+    const { image_url, location, time, description, price, name } = service;
+    console.log(id)
     // const style = {
     //     backgroundColor: text_button_bg
     // }
@@ -20,13 +20,23 @@ const Details = () => {
             </div>
             <div className='col-span-2'>
                 <div className='font-extrabold text-4xl mx-12 my-5'>{name}</div>
+                <div className='flex'>
+                    {
+                        location && <div className='font-normal text-xl ml-12 my-5'>{location},</div>
+                    }
+                    {
+                        time && <div className='my-5 font-normal text-xl mx-3'>{time}</div>
+                    }
+                </div>
+
                 <div className='font-normal text-base mx-12 my-5'>{description}
                 </div>
             </div>
             <div className='flex justify-center border-2 border-dotted border-[#FFA328]'>
                 <div className='items-center grid text-center justify-center'>
                     <span className='font-bold text-2xl mx-7'>Price:</span>
-                    <span className='justify-center text-xl'>{price}</span>
+                    <span className='justify-center text-xl'>
+                        {Number.isInteger(price) ? `$${price}` : price}</span>
                     <button className='btn text-white items-center border-none w-full active rounded-2xl justify-center mx-auto'>Buy Now</button>
                 </div>
             </div>
