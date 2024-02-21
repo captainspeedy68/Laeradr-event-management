@@ -8,29 +8,34 @@ provider.addScope('profile');
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const logInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const logout = () => {
+        setLoading(true);
         return signOut(auth);
     }
     const googleSignIn = () => {
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             // console.log("user in the auth state changed", currentUser)
             setUser(currentUser);
+            setLoading(false)
             // console.log(user.displayName)
         });
         return () => {
             unsubscribe()
         }
     }, [])
-    const authInfo = { user, createUser, logInUser, logout, googleSignIn }
+    const authInfo = { user, createUser, logInUser, logout, googleSignIn, loading }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
