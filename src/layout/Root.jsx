@@ -11,7 +11,7 @@ const Root = () => {
             {/* <BackgroundImage></BackgroundImage> */}
             <Navbar></Navbar>
             <Outlet></Outlet>
-            <Footer className = "max-w-none"></Footer>
+            <Footer className = "w-full"></Footer>
             {/* <ToastContainer autoClose={1000}></ToastContainer> */}
         </div>
     );

@@ -9,7 +9,7 @@ const Details = () => {
     const idInt = parseInt(id);
     const service = services.find(service => service.id === idInt)
     const { image_url, location, time, description, price, name } = service;
-    console.log(id)
+    // console.log(id)
     // const style = {
     //     backgroundColor: text_button_bg
     // }
@@ -24,6 +24,7 @@ const Details = () => {
                     {
                         location && <div className='font-normal text-xl ml-12 my-5'>{location},</div>
                     }
+                    
                     {
                         time && <div className='my-5 font-normal text-xl mx-3'>{time}</div>
                     }
@@ -35,6 +36,7 @@ const Details = () => {
             <div className='flex justify-center border-2 border-dotted border-[#FFA328]'>
                 <div className='items-center grid text-center justify-center'>
                     <span className='font-bold text-2xl mx-7'>Price:</span>
+                    <hr className='w-full border-[#FFA328]' />
                     <span className='justify-center text-xl'>
                         {Number.isInteger(price) ? `$${price}` : price}</span>
                     <button className='btn text-white items-center border-none w-full active rounded-2xl justify-center mx-auto'>Buy Now</button>

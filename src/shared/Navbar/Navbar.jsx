@@ -45,8 +45,6 @@ const Navbar = () => {
         // notify();
         // 
     }
-    if (user && user.photoURL) console.log("from navbar", user.photoURL);
-
     const links = <>
         <li onClick={() => setIsBannerVisible(true)}><NavLink className={` nav-btn ${location.pathname === "/" ? "active " : ""}`} to={"/"} >
             Home
@@ -71,7 +69,7 @@ const Navbar = () => {
                 </div>
                 <a className="rounded-md px-4 py-2 font-bold border-none text-xl text-[#FFA328]  flex justify-around items-center">
                     <img className='h-10 w-10 mr-2' src='/favicon.png'></img>
-                    <span className=''>Læraðr</span></a>
+                    <span className='uppercase'>Læraðr</span></a>
             </div>
             <div className="navbar-center hidden lg:flex align-middle items-center">
                 <ul className="menu-horizontal px-10 flex justify-between ">
@@ -87,40 +85,38 @@ const Navbar = () => {
                     user ?
                         <>
                             {
-                                (user && user.displayName) && <p>{user?.displayName}</p>
-
+                                (user && user.displayName) &&
+                                <p className='text-[#1AD1A4] text-xl font-bold'>{user.displayName}</p>
                             }
-     
+                            {
+                                (user && !user.displayName) &&
+                                <>
+                                    <p className='text-[#1AD1A4] text-xl font-bold'>{user.email}</p>
+                                    <button className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>Logout</button>
+                                </>
+                            }
                             <details className='flex justify-center items-center mx-3 relative'>
                                 <summary className='flex'>
-                                {user?.photoURL && <img className=' icon h-14 w-14 mr-2 rounded-full' src={user?.photoURL} alt="" />}
-
-
+                                    {user?.photoURL &&
+                                        <img className='icon h-14 w-14 mr-2 rounded-full' src={user.photoURL} alt="" />
+                                    }
                                 </summary>
-                            {
-                                user &&                                 <div>
-                                <ul className={` absolute right-0 top-full transform translate-y-4  ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>Logout</ul>
-                            </div>
-                            }
-
+                                {
+                                    user &&
+                                    <div>
+                                        <ul className={`absolute right-0 top-full transform translate-y-4 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>
+                                            <li>Logout</li>
+                                        </ul>
+                                    </div>
+                                }
                             </details>
+
                         </>
                         :
                         <>
                             <div className='flex justify-center items-center mx-3 relative'>
                                 <Link className='block' to={"/login"}>
-                                <summary className='icon'><FaUserLarge className='h-7 w-7' /></summary></Link>
-                                {/* <div className='absolute right-0 top-full transform translate-y-4 '>
-                                    <ul className={`absolute right-0 top-full transform translate-y-0 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick} >
-                                        Login
-                                        <span className="btn-span"></span>
-                                    </Link>
-                                    </ul>
-                                    <ul className={` absolute right-0 top-full transform translate-y-12 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleGoogle}>
-                                        Google
-                                    </ul>
-                                </div> */}
-
+                                    <summary className='icon'><FaUserLarge className='h-7 w-7' /></summary></Link>
                             </div>
 
                             <section className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
