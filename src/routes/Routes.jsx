@@ -11,6 +11,8 @@ import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import Details from '../shared/Details';
+import About from '../pages/About/About';
+import PrivateRoutes from './PrivateRoutes';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -34,14 +36,18 @@ import Details from '../shared/Details';
         },
         {
           path: '/event/:id',
-          element: <Details/>,
+          element: <PrivateRoutes><Details/></PrivateRoutes>,
           loader: () => fetch('/events.json')
         },
         {
           path: '/service/:id',
-          element: <Details />,
+          element: <PrivateRoutes><Details/></PrivateRoutes>,
           loader: () => fetch('/services.json')
         },
+        {
+          path: "/about",
+          element: <About></About>,
+        }
       ]
     },
   ]);
