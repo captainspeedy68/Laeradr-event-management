@@ -71,7 +71,7 @@ const Navbar = () => {
                 </div>
                 <a className="rounded-md px-4 py-2 font-bold border-none text-xl text-[#FFA328]  flex justify-around items-center">
                     <img className='h-10 w-10 mr-2' src='/favicon.png'></img>
-                    <span className=''>Events Mangement</span></a>
+                    <span className=''>Læraðr</span></a>
             </div>
             <div className="navbar-center hidden lg:flex align-middle items-center">
                 <ul className="menu-horizontal px-10 flex justify-between ">
