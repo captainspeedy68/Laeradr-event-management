@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const IndividualEvents = ({ event }) => {
     const { name, description, id, image_url, time, location } = event;
     return (
-        <div className="card md:w-96 bg-base-100 shadow-xl rounded-none event-hover hover:border hover:shadow-2xl border-orange-400 max-md:my-3">
+        <div className="card md:w-96 max-md:mx-3 bg-base-100 max-md:border-2 max-md:hover:border-4 shadow-xl rounded-none event-hover hover:border hover:shadow-2xl border-orange-400 max-md:my-3">
             <figure className="px-5 pt-5">
                 <img src={image_url} alt="Shoes" className="rounded-xl" />
             </figure>
