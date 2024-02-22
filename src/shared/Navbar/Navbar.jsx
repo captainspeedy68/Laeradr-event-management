@@ -64,7 +64,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="px-4 py-2 font-bold border-none text-xl text-[#FF5733] flex justify-around items-center md:bg-white rounded-full">
-                    <img className='h-10 w-10 mr-2 max-md:hidden' src='/favicon.png'></img>
+                    <img className='h-10 w-10 mr-2 max-md:hidden' src='/ygg.png'></img>
                     <span className='uppercase'>Læraðr</span></a>
             </div>
             <div className="navbar-center hidden lg:flex align-middle items-center">
