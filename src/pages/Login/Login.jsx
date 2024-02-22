@@ -82,7 +82,7 @@ const Login = () => {
                         </div>
                         {
                             errorMessage &&
-                            <p className='text-red-400'>{errorMessage}</p>
+                            <p className='text-black'>{errorMessage}</p>
                         }
                         <p className='text-center'>Don't Have An Account? Please <Link className='text-[#FAFAFA] font-semibold' to={"/register"}>Register</Link></p>
 
