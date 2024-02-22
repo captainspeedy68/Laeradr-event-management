@@ -5,19 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import GoogleButton from '../../shared/GoogleButton/GoogleButton';
 const Banner = ({ services }) => {
     const imageUrl = services[7]?.image_url;
-    const {googleSignIn, user} = useContext(AuthContext)
-    const handleGoogle = () => {
-        googleSignIn()
-            .then(result => {
-                const logged = result.user;
-                console.log(logged);
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
+    const {user} = useContext(AuthContext)
     return (
         <div className='mx-auto my-10'>
             {imageUrl && (
@@ -33,15 +24,7 @@ const Banner = ({ services }) => {
                         <div className="flex flex-col justify-center items-center space-y-4 text-center">
                             <h1 className="text-3xl lg:text-5xl font-bold text-white my-8">Manage Your Events!</h1>
                             {
-                                !user && <div onClick={handleGoogle}
-                                className='inline-block justify-center px-6 w-64 py-3 text-lg font-semibold text-white bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-md hover:shadow-lg hover:cursor-pointer'
-                            >
-                                <div className='flex justify-center items-center'>
-                                    <FaGoogle />
-                                    <span className='ml-2'>Login With Google</span>
-                                </div>
-
-                            </div>
+                                !user && <GoogleButton></GoogleButton>
                             }
 
                         </div>
