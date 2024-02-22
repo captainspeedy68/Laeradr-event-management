@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import auth from '../firebase/firebase.config';
 import { GoogleAuthProvider } from "firebase/auth";
+import { NavLink, useLocation } from 'react-router-dom';
 export const provider = new GoogleAuthProvider();
 provider.addScope('profile');
 export const AuthContext = createContext(null);
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -35,7 +37,7 @@ const AuthProvider = ({ children }) => {
             unsubscribe()
         }
     }, [])
-    const authInfo = { user, createUser, logInUser, logout, googleSignIn, loading }
+    const authInfo = { user, createUser, logInUser, logout, googleSignIn, loading,}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
