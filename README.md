@@ -1,8 +1,5 @@
 
-have to add in the website--
-1. Services: service purchase
-2. Add two more routes. Relevant to your website. These two routes will be private
-3. Add a 404 page (not found page)
-4. Explore the [AOS package](https://www.npmjs.com/package/aos) and implement it in the Homepage
-5. change how the footer looks
-6. changes need to be made in the navbar when logged in with normal login method
+still to be added into the website--
+1. Add two more routes. Relevant to your website. These two routes will be private
+2. Add a 404 page (not found page)
+3. changes need to be made in the navbar when logged in with normal login method
