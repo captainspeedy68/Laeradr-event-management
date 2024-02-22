@@ -17,7 +17,7 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div className="carousel carousel-center  p-4 space-x-4 bg-neutral rounded-box">
+        <div className="carousel carousel-center  p-4 space-x-4 my-20 bg-neutral rounded-box">
             {
                 services.map(service =>
                     <div className="carousel-item">
