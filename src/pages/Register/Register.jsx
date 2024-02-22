@@ -23,15 +23,15 @@ const Register = () => {
         const hasUppercase = uppercaseRegex.test(password);
         const hasSpecialChar = specialCharRegex.test(password);
         if (password.length < 6){
-            setErrorMessage("Password cannot be less than 6 characters");
+            setErrorMessage("Error: Password cannot be less than 6 characters");
             return;
         }
         else if (!hasUppercase){
-            setErrorMessage("Password should have at least one uppercase letter");
+            setErrorMessage("Error: Password should have at least one uppercase letter");
             return;
         }
         else if (!hasSpecialChar){
-            setErrorMessage("Password should have at least one special character");
+            setErrorMessage("Error:     Password should have at least one special character");
             return;
         }
         
@@ -68,7 +68,7 @@ const Register = () => {
                         </div>
                         {
                             errorMessage &&
-                            <p className='text-red-400'>{errorMessage}</p>
+                            <p className='text-black'>{errorMessage}</p>
                         }
                         <p className='text-center'>Already Have An Account? <Link className='text-[#FAFAFA] font-semibold' to={"/login"}>Login</Link></p>
 
