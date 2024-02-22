@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const IndividualService = ({ service }) => {
-    const { name, description, image_url, id } = service;
+    const { name, description, image_url, id, button_color } = service;
     // console.log(service);
+    const style = {
+        backgroundColor: button_color
+    }
     return (
 
         <div className="group hero min-h-44 m-0 p-0 w-auto hover:cursor-pointer" style={{ backgroundImage: `url(${image_url})` }}>
@@ -11,9 +14,9 @@ const IndividualService = ({ service }) => {
             <div className="hero-content text-center text-neutral-content">
                 <Link to={`/service/${id}`}>
                     <div className="">
-                        <h1 className="mb-2 font-bold text-white">{name}</h1>
+                        <h1 className="mb-2 h-10 font-bold text-white">{name}</h1>
                         {/* <p className="mb-5 text-white h-40">{description}</p> */}
-                        <button className="btn nav-clickable text-white">Service Details</button>
+                        <button className="btn text-white" style={style}>Service Details</button>
                     </div>
                 </Link>
 
