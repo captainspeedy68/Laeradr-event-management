@@ -6,6 +6,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaUserLarge } from "react-icons/fa6";
+import Logout from '../Logout/Logout';
+import RegisterButton from '../RegisterButton/RegisterButton';
+import LoginButton from '../LoginButton/LoginButton';
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const [isSticky, setIsSticky] = useState(false);
@@ -28,24 +31,13 @@ const Navbar = () => {
     const [isBannerVisible, setIsBannerVisible] = useState(false);
     const [clicked, setClicked] = useState(false);
     // const notify = toast("Logged Out!");
-    const handleClick = () => {
-        setClicked(!clicked);
-        setTimeout(() => {
-            setClicked(false);
-        }, 75);
-    };
-    const handleLogout = () => {
-        logout()
-            .then(result => {
-                // console.log(result);
-            })
-            .catch(error => {
-                console.log(error.message);
-                // toast(error.message)
-            });
-        // notify();
-        // 
-    }
+    // const handleClick = () => {
+    //     setClicked(!clicked);
+    //     setTimeout(() => {
+    //         setClicked(false);
+    //     }, 75);
+    // };
+
     const links = <>
         <li onClick={() => setIsBannerVisible(true)}><NavLink className={` nav-btn ${location.pathname === "/" ? "active " : ""}`} to={"/"} >
             Home
@@ -53,14 +45,14 @@ const Navbar = () => {
         </li>
         <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/events" ? "active" : ""}`} to={"/events"}>Events</NavLink></li>
         <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/about" ? "active" : ""}`} to={"/about"}>About</NavLink></li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/blog" ? "active" : ""}`} to={"/blog"}>Blog</NavLink></li>
+        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/blogs" ? "active" : ""}`} to={"/blogs"}>Blogs</NavLink></li>
         {
-            user && <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/blog" ? "active" : ""}`} to={"/order"}>Order</NavLink></li>
+            user && <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/orders" ? "active" : ""}`} to={"/orders"}>Orders</NavLink></li>
         }
-    </>
+    </>;
     return (
         <div className={`navbar my-3 z-50 relative top-3 max-lg:bg-white mx-auto max-lg:justify-between rounded-full ${isSticky ? 'sticky top-0 md:bg-[#707070]' : ''}`}>
-            <div className="lg:navbar-start">
+            <div className={`navbar-start`}>
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -83,22 +75,22 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className={`flex ${user?.displayName ? "lg:w-1/4" : ""}`}>
+            <div className={`flex xl:navbar-end items-center`}>
 
                 {
                     user ?
                         <>
                             {
                                 (user && !user.displayName) ?
-                                    <div className='flex items-center justify-between rounded-full md:bg-white w-full pl-3 py-1'>
-                                        <p className='text-[#1AD1A4] text-xl font-bold max-md:hidden'>{user.email}</p>
-                                        <button className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable rounded-3xl`} onClick={handleLogout}>Logout</button>
-                                    </div> 
-                                    : 
-                                    <div className='flex items-center justify-between rounded-full md:bg-white w-full pl-4  py-1'>
+                                    <div className='nav-user'>
+                                        <p className='text-[#FF5733] text-xl font-bold max-md:hidden'>{user.email}</p>
+                                        <Logout nav={false}></Logout>
+                                    </div>
+                                    :
+                                    <div className='nav-user'>
                                         {
                                             (user && user.displayName) &&
-                                            <p className='text-[#1AD1A4] max-md:hidden text-xl font-bold'>{user.displayName}</p>
+                                            <p className='text-[#FF5733] max-md:hidden text-xl font-bold'>{user.displayName}</p>
                                         }
                                         <details className='flex justify-center items-center mx-3 relative'>
                                             <summary className='flex'>
@@ -108,11 +100,7 @@ const Navbar = () => {
                                             </summary>
                                             {
                                                 user &&
-                                                <div>
-                                                    <ul className={`absolute right-0 top-full transform translate-y-4 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleLogout}>
-                                                        <li>Logout</li>
-                                                    </ul>
-                                                </div>
+                                                <Logout nav={true}></Logout>
                                             }
                                         </details>
                                     </div>
@@ -122,28 +110,16 @@ const Navbar = () => {
                         :
                         <>
                             {
-                                (!location.pathname.includes("/login")) && <div alt="login" className='flex justify-center items-center mx-3 relative'>
-                                    <Link className='block' to={"/login"}>
-                                        <summary className='icon bg-[#FFBE31] text-white'><FaUserLarge className='h-7 w-7' /></summary></Link>
-                                </div>
+                                (!location.pathname.includes("/login")) && <LoginButton></LoginButton>
                             }
 
                             {
-                                (!location.pathname.includes("/register")) && <section className={`relative mx-2 ${clicked ? 'scale-105' : ''} nav-clickable`} onClick={handleClick}><Link to={"/register"}>
-                                    Register
-                                    <span className="btn-span"></span>
-                                </Link>
-                                </section>
+                                (!location.pathname.includes("/register")) && <RegisterButton></RegisterButton>
                             }
                         </>
                 }
 
             </div>
-            {/* <img src={user.photoURL} alt="" /> */}
-            {/* <ToastContainer></ToastContainer> */}
-            {/* {
-                user && user.photoURL && <img src={user.photoURL}></img>
-            } */}
         </div>
     );
 };
