@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveServices } from '../utility/LocalStorage';
 // import { saveDonationApplication } from '../../Utility/LocalStorage';
 
 const Details = () => {
@@ -8,11 +9,21 @@ const Details = () => {
     const { id } = useParams();
     const idInt = parseInt(id);
     const service = services.find(service => service.id === idInt)
-    const { image_url, location, time, description, price, name } = service;
-    // console.log(id)
-    // const style = {
-    //     backgroundColor: text_button_bg
-    // }
+    const { image_url, location, time, button_color, description, price, name } = service;
+    const notify = () => toast("Order Saved!")
+    const handleBuy = () =>{
+        if (window.location.pathname.includes('event')){
+
+            saveServices(idInt, "event");
+        }
+        else if (window.location.pathname.includes('service')){
+            saveServices(idInt, "service");
+        }
+        notify();
+    }
+    const style = {
+        backgroundColor: button_color
+    }
     return (
         <div className='md:grid my-20 mx-auto grid-cols-4 min-h-80 max-md:text-center'>
             <div className='item-center flex justify-center'>
@@ -39,7 +50,7 @@ const Details = () => {
                     <hr className='w-full border-[#FFA328]' />
                     <span className='justify-center text-xl'>
                         {Number.isInteger(price) ? `$${price}` : price}</span>
-                    <button className='btn text-white items-center border-none w-full active rounded-2xl justify-center mx-auto'>Buy Now</button>
+                    <button onClick={() => handleBuy()} className={`btn text-white items-center border-none w-full rounded-2xl justify-center mx-auto ${button_color ? "" : "active"}`} style={style}>Buy Now</button>
                 </div>
             </div>
         </div>
