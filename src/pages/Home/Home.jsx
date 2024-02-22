@@ -14,7 +14,6 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-    const elementImage = services[2]?.image_url
     return (
         <div className='m-0 p-0'>
             <Banner services={services}></Banner>
