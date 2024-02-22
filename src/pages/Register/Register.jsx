@@ -50,39 +50,27 @@ const Register = () => {
     return (
         <div className='my-4 '>
             <div className="hero">
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card services shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <form onSubmit={handleregister} className="card-body">
-                        <h3 className='text-center font-semibold'>Register</h3>
+                        <h3 className='text-center text-lg font-semibold'>Register</h3>
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="name" className="input text-black rounded-full input-bordered" />
                         </div>
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="email" className="input text-black rounded-full input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+                            <input type="password" name='password' placeholder="password" className="text-black input rounded-full input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white">register</button>
+                            <button className="btn rounded-full bg-[#FFBE31] border-none text-white font-bold text-lg">Register</button>
                         </div>
                         {
                             errorMessage &&
                             <p className='text-red-400'>{errorMessage}</p>
                         }
-                        <p className='text-center'>Already Have An Account? <Link className='text-[#ff530a] font-semibold' to={"/login"}>Login</Link></p>
+                        <p className='text-center'>Already Have An Account? <Link className='text-[#FAFAFA] font-semibold' to={"/login"}>Login</Link></p>
 
                     </form>
                 </div>
