@@ -13,7 +13,7 @@
   @apply bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white;
 }
 .nav-clickable{
-  @apply hover:cursor-pointer transition-transform duration-75 overflow-hidden bg-gradient-to-r from-[#ff530a] via-[#FF7418] to-[#FFA328] border-2 border-transparent rounded-md px-4 py-2 text-white font-semibold shadow-md;
+  @apply hover:cursor-pointer transition-transform duration-75 overflow-hidden bg-gradient-to-r from-[#ff530a] via-[#FF7418] to-[#FFA328] border-2 border-transparent rounded-md px-1 md:px-4 py-2 max-md:text-xs text-white font-semibold shadow-md;
 }
 .event-btn{
   @apply hover:bg-gradient-to-r from-[#FFA328]  from-20% via-[#FF7418] via-50%  to-[#ff530a] to-95% hover:text-white;
@@ -30,4 +30,7 @@
 }
 .services{
   @apply bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white;
+}
+.nav-user{
+  @apply flex items-center justify-between rounded-full md:bg-white w-full pl-3 py-1;
 }
