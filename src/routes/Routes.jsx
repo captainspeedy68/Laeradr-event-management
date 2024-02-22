@@ -15,6 +15,7 @@ import About from '../pages/About/About';
 import PrivateRoutes from './PrivateRoutes';
 import Orders from '../pages/Orders/Orders';
 import Blogs from '../pages/Blogs/Blogs';
+import Gallery from '../pages/Gallery/Gallery';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -57,6 +58,10 @@ import Blogs from '../pages/Blogs/Blogs';
         {
           path: "/orders",
           element: <PrivateRoutes><Orders></Orders></PrivateRoutes>,
+         },
+         {
+          path: "/gallery",
+          element: <PrivateRoutes><Gallery></Gallery></PrivateRoutes>
          }
       ]
     },

@@ -43,11 +43,14 @@ const Navbar = () => {
             Home
         </NavLink>
         </li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/events" ? "active" : ""}`} to={"/events"}>Events</NavLink></li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/about" ? "active" : ""}`} to={"/about"}>About</NavLink></li>
-        <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/blogs" ? "active" : ""}`} to={"/blogs"}>Blogs</NavLink></li>
+        <li ><NavLink className={`nav-btn ${location.pathname === "/events" ? "active" : ""}`} to={"/events"}>Events</NavLink></li>
+        <li ><NavLink className={`nav-btn ${location.pathname === "/about" ? "active" : ""}`} to={"/about"}>About</NavLink></li>
+        <li ><NavLink className={`nav-btn ${location.pathname === "/blogs" ? "active" : ""}`} to={"/blogs"}>Blogs</NavLink></li>
         {
-            user && <li onClick={() => setIsBannerVisible(false)}><NavLink className={`nav-btn ${location.pathname === "/orders" ? "active" : ""}`} to={"/orders"}>Orders</NavLink></li>
+            user && <li ><NavLink className={`nav-btn ${location.pathname === "/orders" ? "active" : ""}`} to={"/orders"}>Orders</NavLink></li>
+        }
+        {
+            user && <li ><NavLink className={`nav-btn ${location.pathname === "/gallery" ? "active" : ""}`} to={"/gallery"}>Gallery</NavLink></li>
         }
     </>;
     return (
