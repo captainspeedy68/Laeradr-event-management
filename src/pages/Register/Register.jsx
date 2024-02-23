@@ -31,7 +31,7 @@ const Register = () => {
             return;
         }
         else if (!hasSpecialChar){
-            setErrorMessage("Error:     Password should have at least one special character");
+            setErrorMessage("Error: Password should have at least one special character");
             return;
         }
         

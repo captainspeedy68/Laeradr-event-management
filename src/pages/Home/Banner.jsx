@@ -17,7 +17,7 @@ const Banner = ({ services }) => {
                     style={{ backgroundImage: `url(${imageUrl})` }}
                 >
                     <div className="hero-overlay bg-opacity-65 bg-gradient-to-r from-[#ff530a] from-20% via-[#FF7418] via-60% to-[#FFA328] to-95% text-white h-full w-full opacity-40">
-                        {/* Overlay content goes here */}
+                        
                     </div>
 
                     <div className="absolute flex justify-center items-center top-1/2 lg:-translate-y-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden">

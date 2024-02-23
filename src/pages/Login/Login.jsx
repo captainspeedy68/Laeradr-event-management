@@ -59,18 +59,15 @@ const Login = () => {
                 <div className="card services shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleLogin} className="card-body">
                         <h3 className='text-center text-lg font-semibold'>Login!</h3>
-                        {/* <div className='text-center'>
-                            <div onClick={handleGoogle}
-                                className='inline-block px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-md hover:shadow-lg hover:cursor-pointer'
-                            >
-                                <div className='flex justify-around items-center'>
-                                    <FaGoogle />
-                                    <span className='ml-3'>Login With Google</span>
-                                </div>
-                            </div>
-                        </div> */}
                         <GoogleButton></GoogleButton>
-                        <div className='text-center'>or</div>
+                        <div className="flex items-center">
+                            <hr className="flex-grow border-gray-300" />
+                            <div className="mx-4 text-gray-200 uppercase">or</div>
+                            <hr className="flex-grow border-gray-300" />
+                        </div>
+
+
+
                         <div className="form-control">
                             <input type="email" name='email' placeholder="email" className="input text-black input-bordered rounded-full" required />
                         </div>

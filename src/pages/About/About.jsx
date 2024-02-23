@@ -14,7 +14,6 @@ const About = () => {
                 <li>Product Launches</li>
                 <li>Corporate Meetings</li>
                 <li>Award Ceremonies</li>
-                {/* Add more types of corporate events as needed */}
             </ul>
             <p className="text-lg mb-4">Whether you're planning a large-scale conference, an intimate corporate meeting, or an exciting product launch, our dedicated team is here to ensure your event is a resounding success.</p>
             <p className="text-lg mb-4">Join us at LÆRAÐR and embark on a journey of growth, learning, and achievement.</p>

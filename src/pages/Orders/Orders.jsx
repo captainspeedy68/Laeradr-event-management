@@ -10,13 +10,12 @@ const Orders = () => {
     const [storedServicesIds, setStoredServicesIds] = useState([]);
     const [storedEvents, setStoredEvents] = useState([])
     useEffect(() => {
-        // Fetch services data
+
         fetch('/services.json')
             .then(response => response.json())
             .then(data => setServices(data))
             .catch(error => console.error('Error fetching services data:', error));
 
-        // Fetch events data
         fetch('/events.json')
             .then(response => response.json())
             .then(data => setEvents(data))
