@@ -19,12 +19,12 @@ const Logout = ({ nav, clicked }) => {
 
     return (
         nav ? (
-                <ul className={`absolute right-0 top-full transform translate-y-4 nav-clickable`} onClick={handleLogout}>
+                <ul className={`nav-clickable rounded-full`} onClick={handleLogout}>
                     <li>Logout</li>
                 </ul>
         ) : (
 
-            <button className="relative mx-2 nav-clickable rounded-3xl" onClick={handleLogout}>Logout</button>
+            <button className="relative mx-2 nav-clickable rounded-full" onClick={handleLogout}>Logout</button>
         )
     );
 };
