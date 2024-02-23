@@ -16,10 +16,12 @@ import PrivateRoutes from './PrivateRoutes';
 import Orders from '../pages/Orders/Orders';
 import Blogs from '../pages/Blogs/Blogs';
 import Gallery from '../pages/Gallery/Gallery';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement: <ErrorPage errorCode={404} errorMessage="Page not found" />,
       children: [
         {
             path: "/",
