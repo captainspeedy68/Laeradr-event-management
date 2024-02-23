@@ -18,7 +18,7 @@ const Gallery = ({ isHome = false }) => {
     }, []);
 
     return (
-        <section className={`${isHome ? 'card absolute hover:shadow-2xl md:w-auto bg-base-100 shadow-xl pb-5 my-4' : ""}`}>
+        <section className={`${isHome ? 'card hover:shadow-2xl mx-3 max-md:hidden md:w-auto bg-base-100 shadow-xl pb-5 my-4' : ""}`}>
 
             <div className={`carousel ${isHome ? "w-full h-96" : "carousel-center space-x-4 bg-neutral my-20 p-4 rounded-box"}`}>
                 {
