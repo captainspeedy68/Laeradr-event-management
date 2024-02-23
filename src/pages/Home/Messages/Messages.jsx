@@ -10,7 +10,7 @@ const Messages = () => {
             {
                 "id": 1,
                 "question": "How do I purchase tickets for an event?",
-                "answer": "You can purchase tickets directly through our website by navigating to the 'Tickets' page and selecting the desired event. Follow the prompts to complete the ticket purchase process."
+                "answer": "You can purchase tickets directly through our website by navigating to the 'Events' page and selecting the desired event. Follow the prompts to complete the ticket purchase process."
             },
             {
                 "id": 2,

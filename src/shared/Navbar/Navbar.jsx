@@ -91,21 +91,22 @@ const Navbar = () => {
                                     </div>
                                     :
                                     <div className='nav-user'>
-                                        {
-                                            (user && user.displayName) &&
-                                            <p className='text-[#FF5733] max-md:hidden text-xl font-bold'>{user.displayName}</p>
+                                        {user?.photoURL ?
+                                            <img className='icon border-4 h-14 w-14 rounded-full' src={user.photoURL} alt="" /> : <FaUserLarge className='icon border-4 h-14 w-14 rounded-full'></FaUserLarge>
                                         }
-                                        <details className='flex justify-center items-center mx-3 relative'>
-                                            <summary className='flex'>
-                                                {user?.photoURL &&
-                                                    <img className='icon border-4 h-14 w-14 mr-2 rounded-full' src={user.photoURL} alt="" />
-                                                }
-                                            </summary>
+                                        <section className='flex'>
+                                            {
+                                                (user && user.displayName) &&
+                                                <p className='text-[#FF5733] mr-1 max-md:hidden text-xl font-bold'>{user.displayName}</p>
+                                            }
+                                        </section>
+
+                                        <div className='flex justify-center items-center mr-2 relative'>
                                             {
                                                 user &&
                                                 <Logout nav={true}></Logout>
                                             }
-                                        </details>
+                                        </div>
                                     </div>
                             }
 
