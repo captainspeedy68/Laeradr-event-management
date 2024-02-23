@@ -6,6 +6,7 @@ import Banner from './Banner';
 import Us from './Us';
 import Marquee from "react-fast-marquee";
 import Messages from './Messages/Messages';
+import Gallery from '../Gallery/Gallery';
 const Home = () => {
     const { user } = useContext(AuthContext);
     const [services, setServices] = useState([]);
@@ -26,6 +27,7 @@ const Home = () => {
             <hr className='relative top-80 my-10 border-1 border-[#fdac2e]' />
             <div className='lg:grid grid-cols-2 mx-auto my-10'>
                 <Us></Us>
+                
                 <Services services={services}></Services>
             </div>
             <hr className='border-1 border-[#FDAC2E]' />

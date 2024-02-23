@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Qna from './Qna';
 import BlogsFront from './BlogsFront';
+import Gallery from '../../Gallery/Gallery';
 AOS.init();
 const Messages = () => {
     const qnas =
@@ -26,11 +27,19 @@ const Messages = () => {
 
     return (
         <div className='my-28 lg:flex lg:justify-around justify-center mx-auto'>
-            <div data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
-                <Qna qnas={qnas}></Qna>
+            <div>
+                <div data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine">
+                    <Qna qnas={qnas}></Qna>
+                </div>
+                <div data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine">
+                    <Gallery isHome = {true}></Gallery>
+                </div>
             </div>
+
             <div className='flex justify-center'>
 
                 <div data-aos="fade-left"
