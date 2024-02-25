@@ -1,4 +1,45 @@
+QNA-
+1. let greeting;
+greetign = {};
+console.log(greetign); 
+ans- A. {}
+explanation- the value of greeting is empty object. as the value of greetings is empty the output is empty object. 
 
-still to be added into the website--
-1. Add another section to the home page
-2. Check out the children of the children feature i.e. to make routes (outlets) within an outlet
+2. function sum(a, b) {
+  return a + b;
+}
+
+sum(1, "2");
+
+ans- c. '12'
+explanation- as the type in the second argument is a string the addition is not done mathematically rather the string is naturally added beside the first argument which has the type integer.
+
+3. const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
+
+info.favoriteFood = "🍝";
+
+console.log(food);
+
+ans- A.
+explanation- this code just outputs the original food array. This is because the original array wasn't changed.
+
+4. function sayHi(name) {
+  return `Hi there, ${name}`;
+}
+
+console.log(sayHi());
+
+ans- B. Hi there, undefined
+explanation- the function requrest the definition of name variable when called. but here the definition is empty because no argument was passed.this is why the output will include undefined
+5. let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach((num) => {
+  if (num) count += 1;
+});
+
+console.log(count);
+
+ans- c. 3
+explanation- count increments when there is a true value of num. 0 is considered false value so count is not increased. therefore there is only 3 increments of count
