@@ -1,3 +1,12 @@
+site link- https://event-management-58766.web.app/
+
+Function- 
+1. This website handles different types of corporate events
+2. Management includes the different types of services given to the organizers
+3. One can also buy tickets for ongoing events posted in the website
+4. Authentication is provided through different login methods (including direct google login)
+5. The website is fully responsive, giving easy access to services. Also one can checkout the gallery of the events in the Gallery page.
+
 QNA-
 1. let greeting;
 greetign = {};
